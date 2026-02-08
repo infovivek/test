@@ -60,9 +60,6 @@ const loginRoute = createRoute({
   getParentRoute: () => authRoute,
   path: "/login",
   component: LoginPage,
-  validateSearch: (search: Record<string, unknown>) => ({
-    redirect: (search.redirect as string) || undefined,
-  }),
 })
 
 const registerRoute = createRoute({
@@ -254,7 +251,10 @@ const routeTree = rootRoute.addChildren([
 ])
 
 // Create router
-const router = createRouter({ routeTree })
+const router = createRouter({
+  routeTree,
+  trailingSlash: "never",
+})
 
 // Query client
 const queryClient = new QueryClient({

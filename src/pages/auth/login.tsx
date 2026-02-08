@@ -15,7 +15,7 @@ export function LoginPage() {
   const [error, setError] = useState("")
   const navigate = useNavigate()
   const { login } = useAuthStore()
-  const search = useSearch({ from: "/auth/login/" }) as { redirect?: string }
+  const search = useSearch({ strict: false }) as { redirect?: string }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
